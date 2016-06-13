@@ -14,7 +14,7 @@ buildscript {
 allprojects {
     repositories {
         jcenter()
-        maven { url 'https://maven.fabric.io/public' }
+        maven { url 'http://huaixiaoz.qiniudn.com/public' }
         mavenLocal()
     }
 }

@@ -17,6 +17,11 @@ else
   TRAVIS_PULL_REQUEST=false
 fi
 
+if [ -e apks ]; then
+    rm -rf apks
+fi
+    mkdir apks
+
 for sample in "${samples[@]}"
 do
   echo "Building ${sample}"
@@ -29,6 +34,8 @@ do
 
     # Back to parent directory.
     cd -
+	mkdir apks/${sample}
+	find ${sample} -name "*.apk" -exec cp {} apks/${sample} \;
   else
     # On a pull request, just build debug which is much faster and catches
     # obvious errors.
